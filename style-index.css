@@ -1,97 +1,220 @@
 @import url('https://fonts.googleapis.com/css2?family=Sankofa+Display&display=swap');
 
-body {
-    background-color: whitesmoke;
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-header {
-    border: 2px solid black;
+body{
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, rgba(250, 50, 0, 1)0%, rgba(255, 241, 82,1)100% );    
+}
+
+header{
     height: 100px;
     width: auto;
     align-content: center;
     background-color: white;
 }
 
-h1 {
-    padding-left: 52px;
+aside{
+    
+        position: absolute;
+        top: 150px; /* altura do header */
+        right: 0;
+        width: 150px;
+        padding: 20px;
+        background-color: white;
+        border: 1px solid #ddd;
+        height: calc(100vh - 100px); /* altura da tela menos a altura do header */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+ 
 }
 
-h4 {
-    display: flex;
-    justify-content: end;
-    font-family: 'Sankofa Display';
-    align-content: end;
-}
+    h1{
+        padding-left: 52px;
+    }
 
-.nome {
+    h4{
+        display: flex;
+        justify-content:  end;
+        font-family: 'Sankofa Display';
+        align-content: end;
+    }
+
+.nome{
     padding-top: 15px;
-}
-
-.nomes{
-    margin-top: 140px;
-}
-.assinatura {
-
+}    
+.assinatura{
+    
     padding-right: 15px;
 }
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-}
 
-#game-board {
+.reinicia{
+    position: absolute;
+    top: 50%;
+    left: 45%;    
+    margin-top: 400px; /* ajuste o valor para posicionar acima do tabuleiro */
     display: flex;
-    justify-content: center;
-    margin: 20px;
-}
-
-.board {
-    display: grid;
-    grid-template-columns: repeat(10, 30px);
-    grid-template-rows: repeat(10, 30px);
-    border: 2px solid #000;
-    margin: 0 10px;
-}
-
-.cell {
-    width: 30px;
-    height: 30px;
-    border: 2px solid#ddd;
-    box-sizing: border-box;
-}
-
-.cell.hit {
-    background-color: rgb(9, 255, 0);
-}
-
-.cell.miss {
-    background-color: #7f7f7f;
-}
-
-#status {
-    margin: 20px;
-    font-size: 1.2em;
-}
-
-.nomes{
     align-items: center;
+    background-color: white;
+    color: black;
+
+    width: 200px; 
+    height: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: large; 
+    padding: 20px 40px;
+    border-radius: 20px;
+    
 }
 
-#botaoReset{
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 1em;
-    cursor: pointer;
-}
-#botaoReset :hover{
-    background-color: #000;
+.reinicia:hover{
+    background-color: green;
     color: white;
 }
 
-#placarPlayer{
-    margin-top: 158px;
+.maior{
+    font-size: 30px;
+    position: absolute;
+    top: 21.5%;
+    left: 44%;
+    color: white;
+}
+.turno{
+    
+    position: absolute;
+    top: 20%;
+    left: 50% ;
+    color: black;   
+    font-size: 50px;
 }
 
-#placarRobo{
-    margin-top: 158px;
+
+
+.tabuleiro{
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(3, auto);
 }
+.tabuleiro.x .celula:not(.x):not(.circulo):hover::after,
+.tabuleiro.x .celula:not(.x):not(.circulo):hover::before,
+.tabuleiro.circulo .celula:not(.x):not(.circulo):hover::after,
+.tabuleiro.circulo .celula:not(.x):not(.circulo):hover::before{
+    background: rgba(255,255,255, 0.3) !important;
+}
+/* celula */
+.celula{
+    width: 100px;
+    height: 100px;
+    border: 5px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.celula.x, .celula.circulo{
+    cursor: not-allowed;
+}
+.celula:nth-child(1),
+.celula:nth-child(2),
+.celula:nth-child(3){
+    border-top: none;
+}
+.celula:nth-child(1),
+.celula:nth-child(4),
+.celula:nth-child(7){
+    border-left: none;
+}
+.celula:nth-child(3),
+.celula:nth-child(6),
+.celula:nth-child(9){
+    border-right: none;
+}
+.celula:nth-child(7),
+.celula:nth-child(8),
+.celula:nth-child(9){
+    border-bottom: none;
+}
+/* X */
+.celula.x::before,
+.celula.x::after,
+.tabuleiro.x .celula:not(.x):not(.circulo):hover::after,
+.tabuleiro.x .celula:not(.x):not(.circulo):hover::before{
+    content: "";
+    height: calc(100px *0.15);
+    width: calc(100px*0.9);
+    position: absolute;
+    border: 5px solid white;
+}
+.celula.x::before,
+.tabuleiro.x .celula:not(.x):not(.circulo):hover::before{
+    transform: rotate(45deg);
+}
+.celula.x::after,
+.tabuleiro.x .celula:not(.x):not(.circulo):hover::after{
+    transform: rotate(-45deg);
+}
+
+/*Circulo*/
+.celula.circulo::before,
+.celula.circulo::after,
+.tabuleiro.circulo .celula:not(.x):not(.circulo):hover::after,
+.tabuleiro.circulo .celula:not(.x):not(.circulo):hover::before{
+    content: "";
+    height: calc(90px *0.9);
+    width: calc(90px*0.9);
+    position: absolute;
+    border-radius: 50%;
+    border: 5px solid green;
+}
+
+/*Mensagem de Vitoria*/
+.msgVitoria{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    flex-direction: column;
+    }
+.msgVitoriobnt{
+        font-size: 2.5rem;
+        background-color: white;
+        color: black;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 20px;
+        border: none;
+        margin-top: 10px;
+    }
+    .msgVitoriobnt:hover{
+        background-color: black;
+        color: white;
+    }
+
+    .msgVitoriotxt{
+        color: white;
+        font-size: 5rem;
+    }
+    
+    .show_msgVitoria{
+         display: flex;
+    }
+
+    

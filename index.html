@@ -1,46 +1,60 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Batalha Naval</title>
+    <title>Jogo da Velha</title>
     <link rel="stylesheet" href="style-index.css">
 </head>
-
 <body>
+
     <header>
         <div class="Nome">
-            <h1>Batalha Naval!</h1>
+            <h1>Jogo da velha!!</h1>
         </div>
-
+        
         <div class="assinatura">
             <h4>Made by Tavin</h4>
         </div>
-
+        
     </header>
-     
-    <div id="status">Sua vez!</div>
+    <!-- VAPO -->
 
+    <button class="reinicia" date-doinicio>Reinicar Partida</button>
+
+    <h2 class="maior">Vez de:</h2>
+    <p class="turno" data-turno></p>
     
-    
-
-    <div id="game-board">
-        <div class="nomes">Seu Tabuleiro: <br>Acertos restantes:</div>
-        <h3 id="placarRobo" data-pontoComputador></h3>
-        <div id="player-board" class="board">ABCDEFG</div>
-
-        <div class="nomes">Tabuleiro Computador: <br>Acertos restantes:</div>
-        <h3 id="placarPlayer" data-pontoPlayer></h3>
-        <div id="computer-board" class="board"></div>
+    <div class="tabuleiro x" data-tabuleiro>
+        <div class="celula" data-celula></div>
+        <div class="celula" data-celula></div>
+        <div class="celula" data-celula></div>
+        <div class="celula" data-celula></div>
+        <div class="celula" data-celula></div>
+        <div class="celula" data-celula></div>
+        <div class="celula" data-celula></div>
+        <div class="celula" data-celula></div>
+        <div class="celula" data-celula></div>
     </div>
     
-    <button id="botaoReset">Reiniciar Jogo</button>
-    
-    <script src="script.js"></script>
+   <aside>
 
-   
+        <div class="contador" data-contador>
+            <h3>Pontos X:</h3>
+            <p class="placar" data-pontoX>0</p>
+            <h3>Pontos O:</h3>
+            <p class="placar" data-pontoO>0</p>
+            <h3>Empates:</h3>
+            <p class="placar" data-pontoE>0</p>
+
+            <button class="botao" date-zeraplacar>Reiniciar</button>
+        </div>
+   </aside>
+
+    <div class="msgVitoria" winning>
+        <p class="msgVitoriotxt" date-msg-txt></p>
+        <button class="msgVitoriobnt" date-reiniciar>Reiniciar</button>
     </div>
+        <script src="scrip.js"></script>
 </body>
-
 </html>
