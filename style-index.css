@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Sankofa+Display&display=swap');
+
+body {
+    background-color: whitesmoke;
+}
+
+header {
+    border: 2px solid black;
+    height: 100px;
+    width: auto;
+    align-content: center;
+    background-color: white;
+}
+
+h1 {
+    padding-left: 52px;
+}
+
+h4 {
+    display: flex;
+    justify-content: end;
+    font-family: 'Sankofa Display';
+    align-content: end;
+}
+
+.nome {
+    padding-top: 15px;
+}
+
+.nomes{
+    margin-top: 140px;
+}
+.assinatura {
+
+    padding-right: 15px;
+}
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+#game-board {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(10, 30px);
+    grid-template-rows: repeat(10, 30px);
+    border: 2px solid #000;
+    margin: 0 10px;
+}
+
+.cell {
+    width: 30px;
+    height: 30px;
+    border: 2px solid#ddd;
+    box-sizing: border-box;
+}
+
+.cell.hit {
+    background-color: rgb(9, 255, 0);
+}
+
+.cell.miss {
+    background-color: #7f7f7f;
+}
+
+#status {
+    margin: 20px;
+    font-size: 1.2em;
+}
+
+.nomes{
+    align-items: center;
+}
+
+#botaoReset{
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+}
+#botaoReset :hover{
+    background-color: #000;
+    color: white;
+}
+
+#placarPlayer{
+    margin-top: 158px;
+}
+
+#placarRobo{
+    margin-top: 158px;
+}
